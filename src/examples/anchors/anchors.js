@@ -66,12 +66,14 @@ looker.plugins.visualizations.add({
     // Insert the data into the page
     this._visElement.innerHTML += '<div class="cell-content">' + LookerCharts.Utils.htmlForCell(firstCell) + '</div>';
     this._visElement.innerHTML += `<div class="button-location-href">
-      <button onclick="document.location.href="https://google.com">Location HREF</button>
+      <button onclick="document.location.href='https://google.com'>Location HREF</button>
     </div>`;
 
-    const openInNewWindow = () => window.open('https://google.com', '_blank');
+    const openInNewWindow = function() { 
+      window.open('https://google.com', '_blank') 
+    };
     this._visElement.innerHTML += `<div class="button-window-open">
-      <button onclick="openInNewWindow()">Window Open</button>
+      <button onclick="${openInNewWindow}">Window Open</button>
     </div>`;
     
     this._visElement.innerHTML += `<div class="anchor-without-target">
